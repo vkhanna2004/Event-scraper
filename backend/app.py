@@ -15,5 +15,11 @@ def scrape_events_route():
     thread.start()
     return jsonify({"message": "Scraping started!"})
 
+@app.route('/events')
+def get_events():
+    # Placeholder to retrieve events from DB, adjust as needed
+    events = list(events_collection.find())
+    return jsonify(events)
+
 if __name__ == '__main__':
     app.run(debug=True)

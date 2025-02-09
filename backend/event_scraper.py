@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from pymongo import MongoClient
 import os
 from dotenv import load_dotenv
+import pandas as pd 
 
 # Load environment variables from .env
 load_dotenv()
@@ -14,7 +15,7 @@ db = client['event-scraper']
 events_collection = db['events']
 
 # URL of the event page to scrape
-EVENT_URL = "https://www.eventbrite.com/d/india--delhi/events/"  # Replace with a real URL
+EVENT_URL = "https://www.eventbrite.com/d/india--delhi/events/"  
 
 # Scrape events from the website
 def scrape_events():
@@ -35,7 +36,7 @@ def scrape_events():
                 'title': title,
                 'description': description,
                 'link': link,
-                'scraped_at': pd.Timestamp.now()
+                'scraped_at': pd.Timestamp.now()  # Ensure correct import and usage
             }
             
             # Insert event data into MongoDB
