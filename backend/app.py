@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from event_scraper import scrape_events  # Import the scraper
+from event_scraper import scrape_events
 from threading import Thread
 
 app = Flask(__name__)
