@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = import.meta.env.API_BASE_URL; 
+const API_BASE_URL = import.meta.env.API_BASE_URL || "http://127.0.0.1:5000"; 
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -24,7 +24,7 @@ export const fetchEvents = async (page = 1, limit = 24) => {
 
 export const scrapeEvents = async () => {
   try {
-    const response = await api.get("/scrape");
+    const response = await axios.get("/scrape");
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || "Error starting scraping");
