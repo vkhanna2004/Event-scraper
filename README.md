@@ -38,6 +38,7 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 📌 Setup .env file for MongoDB
+
 Create a .env file inside backend/:
 ```
 MONGO_URI=mongodb+srv://your_username:your_password@your_cluster.mongodb.net/event-scraper?retryWrites=true&w=majority
