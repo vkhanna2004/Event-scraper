@@ -2,10 +2,10 @@ from flask import Flask, jsonify, request
 from event_scraper import scrape_events
 from threading import Thread
 from flask_cors import CORS
-from pymongo import MongoClient  # ✅ Import MongoClient
+from pymongo import MongoClient  
 import os
 
-MONGO_URI = os.getenv("MONGO_URI")  # ✅ Load MongoDB URL from environment
+MONGO_URI = os.getenv("MONGO_URI")  
 PER_PAGE = 20
 
 app = Flask(__name__)
