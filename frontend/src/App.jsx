@@ -32,8 +32,9 @@ function App() {
         </h1>
 
         <p className="text-lg text-center max-w-2xl mb-4" style={{ color: "#4B5563" }}>
-          Event Scraper is an automated tool that scrapes and displays upcoming events 
-          from EventBrite, making it easy to stay updated on new events.
+          A web scraper to collect and list events happening in Delhi NCR, India ,
+           making it easy to stay updated on new events.
+          
         </p>
 
         <a
