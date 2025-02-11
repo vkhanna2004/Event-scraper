@@ -13,7 +13,7 @@ const api = axios.create({
 export const fetchEvents = async (page = 1, limit = 24) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/events`, {
-      params: { page, limit },  // ✅ Send page & limit as query parameters
+      params: { page, limit },  // Send page & limit as query parameters
     });
     return response.data;
   } catch (error) {
@@ -24,7 +24,7 @@ export const fetchEvents = async (page = 1, limit = 24) => {
 
 export const scrapeEvents = async () => {
   try {
-    const response = await axios.get("/scrape");
+    const response = await axios.get(`${API_BASE_URL}/scrape`);
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || "Error starting scraping");
