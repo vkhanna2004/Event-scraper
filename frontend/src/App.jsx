@@ -1,5 +1,5 @@
 import React from "react";
-import Events from "./components/Events.jsx";
+import EventListing from "./components/EventListing.jsx";
 
 function App() {
   return (
@@ -52,7 +52,7 @@ function App() {
         </a>
 
         <div className="mt-10 w-full">
-          <Events />
+          <EventListing />
         </div>
       </main>
     </div>

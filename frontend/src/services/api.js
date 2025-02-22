@@ -12,7 +12,7 @@ const api = axios.create({
 
 export const fetchEvents = async (page = 1, limit = 24) => {
   try {
-    const response = await api.get(`${API_BASE_URL}/events`, {
+    const response = await api.get("/events", {
       params: { page, limit },  // Send page & limit as query parameters
     });
     return response.data;
@@ -24,9 +24,30 @@ export const fetchEvents = async (page = 1, limit = 24) => {
 
 export const scrapeEvents = async () => {
   try {
-    const response = await api.get(`${API_BASE_URL}/scrape`);
+    const response = await api.get("/scrape");
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || "Error starting scraping");
   }
 };
+
+export const sendOTP = async (email) => {
+  try {
+    const response = await api.post("/send-otp", { email });
+    return response.data;
+  } catch (error) {
+    console.error("❌ Error sending OTP:", error);
+    throw new Error(error.response?.data?.message || "Error sending OTP");
+  }
+};
+
+export const verifyOTP = async (email, otp) => {
+  try {
+    const response = await  api.post("/verify-otp", { email, otp });
+
+    return await response.data;
+  } catch (error) {
+    console.error("Error verifying OTP:", error);
+  }
+};
+

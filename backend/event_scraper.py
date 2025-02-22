@@ -5,15 +5,13 @@ import requests
 from pymongo import MongoClient
 from dotenv import load_dotenv
 
-load_dotenv()  # load environment variables from .env
+load_dotenv()
 
 EVENT_URL = "https://www.eventbrite.com/d/india--delhi/events/"  
 MONGO_URI = os.getenv("MONGO_URI")
 
 def scrape_events():
-    # Paths for the JSON output file if needed (not used for MongoDB insert)
     base_dir = os.path.dirname(__file__)
-    # json_path = os.path.join(base_dir, 'data', 'events_20250209_191210.json')
     
     html_content = requests.get(EVENT_URL)
     if html_content.status_code == 200:
@@ -44,7 +42,6 @@ def scrape_events():
         }
         events.append(event_data)
     
-    # Initialize MongoDB client and target collection
     client = MongoClient(MONGO_URI)
     db = client.get_default_database()
     collection = db.events  # using collection named 'events'
@@ -53,7 +50,7 @@ def scrape_events():
     delete_result = collection.delete_many({})
     print(f"Deleted {delete_result.deleted_count} documents from the collection.")
     
-    # Insert scraped events into MongoDB
+    # Insert into mongoDB
     if events:
         insert_result = collection.insert_many(events)
         print(f"Inserted {len(insert_result.inserted_ids)} events into MongoDB.")
