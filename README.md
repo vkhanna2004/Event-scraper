@@ -2,6 +2,8 @@
 
 A web application that scrapes events happening in Delhi NCR, India , making it easy to stay updated on new events.
 
+## 🚀 Deployment
+- You can Visit website [here](https://event-scraper-frontend.onrender.com/).
 ## 🚀 Features
 
 ✅ **Scrapes event details** details like title, date, location, description, ticket link, etc from Eventbrite  
