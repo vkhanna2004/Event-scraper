@@ -10,11 +10,13 @@ A web application that scrapes events happening in Delhi NCR, India , making it 
 ✅ **Stores scraped events** in MongoDB Atlas  
 ✅ **React frontend** to display event listings  
 ✅ **Flask API** for backend communication
-
+✅ **OTP Verification**: Secure event access via email OTP verification.
+✅ **Redis Caching**: OTPs are stored in Redis for efficient verification.
+✅ **Email Delivery via RESEND**: OTPs are sent using RESEND for reliable email deliver
 
 ## 📌 Tech Stack
 
-- **Backend:** Flask, BeautifulSoup, Requests, PyMongo
+- **Backend:** Flask, BeautifulSoup, Requests, PyMongo,Redis (for caching OTPs), RESEND (for sending OTP emails)
 - **Database:** MongoDB Atlas (Cloud)
 - **Frontend:** React (Vite)
 
@@ -44,6 +46,11 @@ pip install -r requirements.txt
 Create a .env file inside backend/:
 ```
 MONGO_URI=mongodb+srv://your_username:your_password@your_cluster.mongodb.net/event-scraper?retryWrites=true&w=majority
+REDIS_HOST=
+REDIS_PORT=
+REDIS_PASSWORD=
+RESEND_API_KEY=
+SENDER_MAIL_ID
 ```
 📌 Run the Backend
 ```
@@ -72,11 +79,12 @@ Frontend will run on http://localhost:5173
 
 🌍 API Endpoints (Flask)
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/events` | Get all events |
-| GET | `/api/events/<id>` | Get event by ID |
-| POST | `/api/scrape` | Trigger scraping manually |
+| Method | Endpoint      | Description                  |
+|--------|---------------|----------------------------- |
+| GET    | `/api/events` | Get all events               |
+| POST   | `/api/scrape` | Trigger scraping manually    |
+| POST   | `/send-otp`   |Sends OTP to the user's email |
+| POST   |`/verify-otp`  | Verifies OTP from Redis      |
 
 📜 License
 
