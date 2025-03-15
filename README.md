@@ -9,9 +9,9 @@ A web application that scrapes events happening in Delhi NCR, India , making it 
 ✅ **Scrapes event details** details like title, date, location, description, ticket link, etc from Eventbrite  
 ✅ **Stores scraped events** in MongoDB Atlas  
 ✅ **React frontend** to display event listings  
-✅ **Flask API** for backend communication
-✅ **OTP Verification**: Secure event access via email OTP verification.
-✅ **Redis Caching**: OTPs are stored in Redis for efficient verification.
+✅ **Flask API** for backend communication   
+✅ **OTP Verification**: Secure event access via email OTP verification.  
+✅ **Redis Caching**: OTPs are stored in Redis for efficient verification.  
 ✅ **Email Delivery via RESEND**: OTPs are sent using RESEND for reliable email deliver
 
 ## 📌 Tech Stack
